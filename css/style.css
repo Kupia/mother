@@ -246,6 +246,13 @@ button { font: inherit; cursor: pointer; }
   stroke-width: 2;
   stroke-linejoin: round;
 }
+/* Внутренняя линия берега — как отмель на морской карте */
+.map__shores path {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.32);
+  stroke-width: 1.6;
+  stroke-linejoin: round;
+}
 .map__icons {
   color: #a97b52;
   opacity: 0.55;
