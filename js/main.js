@@ -226,7 +226,7 @@
     var caption = '<span class="photo__caption">' + escapeHtml(label) + "</span>";
     if (photo.thumb || photo.full) {
       return '<button class="photo" type="button" data-gallery-id="' + galleryId + '" aria-label="' + escapeHtml(label) + '">' +
-        '<img src="' + escapeHtml(photo.thumb || photo.full) + '" alt="' + escapeHtml(label) + '" loading="lazy" decoding="async">' +
+        '<img src="' + escapeHtml(photo.thumb || photo.full) + '" alt="' + escapeHtml(label) + '" decoding="async">' +
         caption + "</button>";
     }
     return '<button class="photo photo--placeholder" type="button" data-gallery-id="' + galleryId +
@@ -246,6 +246,21 @@
     $("#panelTitle").textContent = place.city;
     $("#panelSubtitle").textContent = place.title || "";
     $("#panelCaption").textContent = place.caption || "";
+
+    /* Заставка выходит из-под заголовка и растворяется к галерее */
+    var header = $("#panelHeader");
+    var oldCover = header.querySelector(".panel__cover");
+    if (oldCover) oldCover.remove();
+    header.classList.remove("panel__header--cover");
+    if (place.cover) {
+      header.classList.add("panel__header--cover");
+      var cover = document.createElement("img");
+      cover.className = "panel__cover";
+      cover.src = place.cover;
+      cover.alt = "";
+      cover.setAttribute("aria-hidden", "true");
+      header.insertBefore(cover, header.firstChild);
+    }
 
     var photos = Array.isArray(place.photos) ? place.photos : [];
     panelGrid.innerHTML = photos.map(function (photo, index) {
