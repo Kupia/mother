@@ -44,7 +44,10 @@ window.PLACES = [
         full: "assets/photos/sakhalin/7e155714-6aed-4272-95cd-8b1a45b3aaab.jpeg" },
       { alt: "Ещё одно фото",
         thumb: "assets/photos/sakhalin/9b9ee15e-53b5-46b6-aefc-881b1e6ee4ca-thumb.jpeg",
-        full: "assets/photos/sakhalin/9b9ee15e-53b5-46b6-aefc-881b1e6ee4ca.jpeg" }
+        full: "assets/photos/sakhalin/9b9ee15e-53b5-46b6-aefc-881b1e6ee4ca.jpeg" },
+      { alt: "Ещё одно фото с острова",
+        thumb: "assets/photos/sakhalin/43428357-74ec-4154-bad3-af6e536bdd7a-thumb.jpeg",
+        full: "assets/photos/sakhalin/43428357-74ec-4154-bad3-af6e536bdd7a.jpeg" }
     ]
   },
   {
@@ -82,10 +85,21 @@ window.PLACES = [
     title: "Три озера",
     caption: "Тихая вода, сосны и чувство, что время здесь течёт иначе.",
     photos: [
-      { alt: "Первое озеро" },
-      { alt: "Тихий берег" },
-      { alt: "Сосны у воды" },
-      { alt: "Отражение в озере" }
+      { alt: "Фото из Триозерья 1",
+        thumb: "assets/photos/treozerye/29ed44e9-3a11-453e-9c72-b013057b9d21-thumb.jpeg",
+        full: "assets/photos/treozerye/29ed44e9-3a11-453e-9c72-b013057b9d21.jpeg" },
+      { alt: "Фото из Триозерья 2",
+        thumb: "assets/photos/treozerye/6b525b9a-513a-46e5-8503-2dbab51c1657-thumb.jpeg",
+        full: "assets/photos/treozerye/6b525b9a-513a-46e5-8503-2dbab51c1657.jpeg" },
+      { alt: "Фото из Триозерья 3",
+        thumb: "assets/photos/treozerye/8eafbdb2-5c02-478f-9fba-bfdc5b2bb995-thumb.jpeg",
+        full: "assets/photos/treozerye/8eafbdb2-5c02-478f-9fba-bfdc5b2bb995.jpeg" },
+      { alt: "Фото из Триозерья 4",
+        thumb: "assets/photos/treozerye/913d285b-3b30-4e19-95a7-41fe3af3d196-thumb.jpeg",
+        full: "assets/photos/treozerye/913d285b-3b30-4e19-95a7-41fe3af3d196.jpeg" },
+      { alt: "Фото из Триозерья 5",
+        thumb: "assets/photos/treozerye/cded9c12-d337-4691-abfa-de5d953c1237-thumb.jpeg",
+        full: "assets/photos/treozerye/cded9c12-d337-4691-abfa-de5d953c1237.jpeg" }
     ]
   },
   {
@@ -96,10 +110,21 @@ window.PLACES = [
     title: "Где начинается океан",
     caption: "Сопки, бухты и долгие прогулки у воды.",
     photos: [
-      { alt: "Бухта и сопки" },
-      { alt: "Набережная города" },
-      { alt: "Океан вдалеке" },
-      { alt: "Вечерний Владивосток" }
+      { alt: "Фото из Владивостока 1",
+        thumb: "assets/photos/vladivostok/01965a70-3cbd-4e54-9592-88ccb9aafafa-thumb.jpeg",
+        full: "assets/photos/vladivostok/01965a70-3cbd-4e54-9592-88ccb9aafafa.jpeg" },
+      { alt: "Фото из Владивостока 2",
+        thumb: "assets/photos/vladivostok/a9dedb86-4e8c-4c12-8aef-beb824641503-thumb.jpeg",
+        full: "assets/photos/vladivostok/a9dedb86-4e8c-4c12-8aef-beb824641503.jpeg" },
+      { alt: "Фото из Владивостока 3",
+        thumb: "assets/photos/vladivostok/be951a4c-2956-4ba7-8885-33ab1445bf73-thumb.jpeg",
+        full: "assets/photos/vladivostok/be951a4c-2956-4ba7-8885-33ab1445bf73.jpeg" },
+      { alt: "Владивосток в 2018 году",
+        thumb: "assets/photos/vladivostok/2018-08-18%2009-20-33_1546337000144-thumb.JPG",
+        full: "assets/photos/vladivostok/2018-08-18%2009-20-33_1546337000144.JPG" },
+      { alt: "Владивосток в 2021 году",
+        thumb: "assets/photos/vladivostok/2021-03-07%2014-47-12-thumb.JPG",
+        full: "assets/photos/vladivostok/2021-03-07%2014-47-12.JPG" }
     ]
   },
   {
@@ -111,10 +136,21 @@ window.PLACES = [
     title: "Самое тёплое море",
     caption: "Солнце, лазурь и разговоры, которые хочется продлить.",
     photos: [
-      { alt: "Лазурный берег" },
-      { alt: "Море и скалы" },
-      { alt: "Ужин у моря" },
-      { alt: "Закат на Кипре" }
+      { alt: "Фото с Кипра 1",
+        thumb: "assets/photos/cyprus/065f53b0-d241-4287-a9ed-94c5b85edf7d-thumb.jpeg",
+        full: "assets/photos/cyprus/065f53b0-d241-4287-a9ed-94c5b85edf7d.jpeg" },
+      { alt: "Фото с Кипра 2",
+        thumb: "assets/photos/cyprus/097a930c-b239-46f8-af81-b861dbe59119-thumb.jpeg",
+        full: "assets/photos/cyprus/097a930c-b239-46f8-af81-b861dbe59119.jpeg" },
+      { alt: "Фото с Кипра 3",
+        thumb: "assets/photos/cyprus/195b00fe-612a-4265-a07c-934dfed2d346-thumb.jpeg",
+        full: "assets/photos/cyprus/195b00fe-612a-4265-a07c-934dfed2d346.jpeg" },
+      { alt: "Фото с Кипра 4",
+        thumb: "assets/photos/cyprus/2e7b868e-c21f-44a0-a5a8-2ef89c6860f4-thumb.jpeg",
+        full: "assets/photos/cyprus/2e7b868e-c21f-44a0-a5a8-2ef89c6860f4.jpeg" },
+      { alt: "Фото с Кипра 5",
+        thumb: "assets/photos/cyprus/581be3b2-f662-43da-ab6d-d5b0a0613a12-thumb.jpeg",
+        full: "assets/photos/cyprus/581be3b2-f662-43da-ab6d-d5b0a0613a12.jpeg" }
     ]
   },
   {
