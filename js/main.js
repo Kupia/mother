@@ -4,6 +4,7 @@
   var SITE = window.SITE || {};
   var PLACES = Array.isArray(window.PLACES) ? window.PLACES : [];
   var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var STEP_MS = 80; /* интервал между появлением следов */
 
   var $ = function (selector, root) { return (root || document).querySelector(selector); };
   var $$ = function (selector, root) { return Array.prototype.slice.call((root || document).querySelectorAll(selector)); };
@@ -126,7 +127,7 @@
       "translate(" + (point.x + offsetX).toFixed(1) + " " + (point.y + offsetY).toFixed(1) + ") " +
       "rotate(" + (angle + 90).toFixed(1) + ") scale(" + side + ",1)");
     print.style.setProperty("--o", opacity.toFixed(2));
-    if (!reduceMotion) print.style.animationDelay = (delayIndex * 0.038).toFixed(2) + "s";
+    if (!reduceMotion) print.style.animationDelay = (delayIndex * STEP_MS / 1000).toFixed(2) + "s";
     return print;
   }
 
@@ -183,7 +184,7 @@
         if (token !== walkToken) return;
         pendingPanel = null;
         openPanel(placeId);
-      }, added * 38 + 450);
+      }, added * STEP_MS + 450);
     }
   }
 

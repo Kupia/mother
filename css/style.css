@@ -68,8 +68,8 @@ button { font: inherit; cursor: pointer; }
   line-height: 1.15;
 }
 .topbar__actions { display: flex; align-items: center; gap: 0.55rem; }
-/* Крабик (волна), искра (конфетти) и девушка на сапе — одинаковые круглые иконки в углу */
-.topbar__wave, .topbar__celebrate, .topbar__sup {
+/* Крабик (волна), искра (конфетти), сап и огурец — одинаковые круглые иконки в углу */
+.topbar__wave, .topbar__celebrate, .topbar__sup, .topbar__game {
   display: grid;
   place-items: center;
   width: 46px;
@@ -82,14 +82,17 @@ button { font: inherit; cursor: pointer; }
   cursor: pointer;
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
-.topbar__wave svg, .topbar__celebrate svg, .topbar__sup svg { display: block; width: 100%; height: auto; }
+.topbar__wave svg, .topbar__celebrate svg, .topbar__sup svg, .topbar__game svg { display: block; width: 100%; height: auto; }
 .topbar__wave:hover, .topbar__wave:focus-visible,
 .topbar__celebrate:hover, .topbar__celebrate:focus-visible,
-.topbar__sup:hover, .topbar__sup:focus-visible {
+.topbar__sup:hover, .topbar__sup:focus-visible,
+.topbar__game:hover, .topbar__game:focus-visible {
   transform: translateY(-2px) rotate(-6deg);
   box-shadow: 0 12px 22px rgba(27, 72, 105, 0.24);
 }
 .topbar__wave:disabled, .topbar__sup:disabled { opacity: 0.55; cursor: default; transform: none; }
+.topbar__game.is-active { background: var(--sea-ink); box-shadow: 0 0 0 3px rgba(232, 180, 184, 0.55); }
+.topbar__game.is-active svg { filter: brightness(1.15); }
 
 /* ---------- Волна и крабики ---------- */
 
@@ -755,6 +758,114 @@ button { font: inherit; cursor: pointer; }
 .lightbox__nav:hover, .lightbox__close:hover { background: rgba(255, 255, 255, 0.25); }
 .lightbox__close { position: absolute; top: 1rem; right: 1rem; }
 
+/* ---------- Игра: морские огурцы ---------- */
+
+/* Пока идёт игра, пины не отвлекают, курсор заменяет водолаз */
+/* Огурцы разбросаны по всей карте — во время игры можно листать карту */
+.map--game { cursor: none; touch-action: pan-y; }
+.map--game .pin { pointer-events: none; opacity: 0.3; }
+.game-layer { pointer-events: none; }
+.game-cucumber > use {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: game-bob 1.6s ease-in-out infinite alternate;
+}
+.game-chain use { opacity: 0.92; }
+.game-head use { filter: drop-shadow(0 3px 5px rgba(27, 72, 105, 0.3)); }
+@keyframes game-bob {
+  from { transform: translateY(-4px) rotate(-5deg); }
+  to { transform: translateY(4px) rotate(5deg); }
+}
+/* Огурцы рассыпаются при столкновении с островом */
+.game-scatter {
+  animation: game-scatter 0.95s cubic-bezier(0.2, 0.6, 0.3, 1) forwards;
+}
+@keyframes game-scatter {
+  from { transform: translate(var(--x), var(--y)) scale(1) rotate(0deg); opacity: 0.9; }
+  to { transform: translate(calc(var(--x) + var(--dx)), calc(var(--y) + var(--dy))) scale(0.25) rotate(var(--rot)); opacity: 0; }
+}
+/* Приз за 8 огурцов */
+.game-prize {
+  animation: game-prize-in 0.65s cubic-bezier(0.18, 1.4, 0.4, 1) both;
+}
+@keyframes game-prize-in {
+  from { transform: translate(var(--x), var(--y)) scale(0.2); opacity: 0; }
+  to { transform: translate(var(--x), var(--y)) scale(1); opacity: 1; }
+}
+.game-spark { animation: game-spark 0.9s ease-out forwards; }
+@keyframes game-spark {
+  from { transform: translate(var(--x), var(--y)) scale(1); opacity: 1; }
+  to { transform: translate(calc(var(--x) + var(--dx)), calc(var(--y) + var(--dy))) scale(0.2); opacity: 0; }
+}
+
+.game-hud {
+  position: fixed;
+  right: clamp(1rem, 4vw, 2.5rem);
+  bottom: 1.2rem;
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  max-width: min(90vw, 520px);
+  padding: 0.5rem 0.8rem;
+  border-radius: 999px;
+  background: rgba(255, 253, 251, 0.94);
+  box-shadow: 0 10px 28px rgba(27, 72, 105, 0.18);
+  color: var(--sea-ink);
+  font-family: "Avenir Next", Avenir, var(--font-body);
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+}
+.game-hud__score { font-weight: 600; }
+.game-hud__message { color: var(--rose-deep); }
+.game-hud__button {
+  padding: 0.3rem 0.75rem;
+  border: 1px solid rgba(31, 77, 109, 0.25);
+  border-radius: 999px;
+  background: var(--white);
+  color: var(--sea-ink);
+  font-family: inherit;
+  font-size: 0.78rem;
+}
+.game-hud__button:hover, .game-hud__button:focus-visible { background: #eef7fb; }
+
+/* Когда приз вышел вверх, плашку с кнопками убираем на верх экрана */
+.game-hud--finale { bottom: auto; top: 1.2rem; }
+
+/* Приз: большой водолаз вылезает снизу ровно на половину экрана */
+.game-finale {
+  position: fixed;
+  left: 50%;
+  bottom: 0;
+  z-index: 25;
+  width: min(100vw, 640px);
+  height: 50vh;
+  pointer-events: none;
+  transform: translateX(-50%) translateY(0);
+  animation: finale-rise 0.85s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.game-finale[hidden] { display: none; }
+.game-finale__art {
+  display: block;
+  width: 100%;
+  height: 100%;
+  transform: scale(var(--finale-scale, 1));
+  transform-origin: bottom center;
+}
+.game-finale__bubble { animation: finale-bubble 1.6s ease-in infinite alternate; }
+.game-finale__bubble:nth-child(2) { animation-delay: 0.4s; }
+.game-finale__bubble:nth-child(3) { animation-delay: 0.8s; }
+@keyframes finale-rise {
+  from { transform: translateX(-50%) translateY(105%); }
+  to { transform: translateX(-50%) translateY(0); }
+}
+@keyframes finale-bubble {
+  from { transform: translateY(4px); opacity: 0.5; }
+  to { transform: translateY(-8px); opacity: 1; }
+}
+
 /* ---------- Конфетти ---------- */
 
 .confetti-layer { position: fixed; inset: 0; z-index: 200; pointer-events: none; overflow: hidden; }
@@ -793,7 +904,10 @@ button { font: inherit; cursor: pointer; }
   }
   .topbar h1 { font-size: 1.3rem; }
   .topbar__actions { gap: 0.4rem; width: 100%; justify-content: space-between; }
-  .topbar__wave, .topbar__celebrate, .topbar__sup { width: 38px; height: 38px; padding: 5px; }
+  .topbar__wave, .topbar__celebrate, .topbar__sup, .topbar__game { width: 38px; height: 38px; padding: 5px; }
+  .game-hud { right: 0.8rem; bottom: 0.8rem; left: 0.8rem; max-width: none; border-radius: 20px; font-size: 0.78rem; }
+  .game-hud--finale { top: 0.7rem; bottom: auto; }
+  .game-finale { --finale-scale: 1.25; }
   .pin__label b { font-size: 0.95rem; }
   .pin__dot { width: 9px; height: 9px; border-width: 2px; right: calc(100% + 0.3rem); }
   .map__hint { bottom: 1rem; font-size: 0.72rem; white-space: normal; width: max-content; max-width: 90vw; }
