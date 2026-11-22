@@ -907,7 +907,8 @@ button { font: inherit; cursor: pointer; }
   .topbar__wave, .topbar__celebrate, .topbar__sup, .topbar__game { width: 38px; height: 38px; padding: 5px; }
   .game-hud { right: 0.8rem; bottom: 0.8rem; left: 0.8rem; max-width: none; border-radius: 20px; font-size: 0.78rem; }
   .game-hud--finale { top: 0.7rem; bottom: auto; }
-  .game-finale { --finale-scale: 1.25; }
+  /* Масштабировать SVG нельзя: на узком экране обрезаются руки с бокалом и гребешком */
+  .game-finale { --finale-scale: 1; }
   .pin__label b { font-size: 0.95rem; }
   .pin__dot { width: 9px; height: 9px; border-width: 2px; right: calc(100% + 0.3rem); }
   .map__hint { bottom: 1rem; font-size: 0.72rem; white-space: normal; width: max-content; max-width: 90vw; }

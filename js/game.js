@@ -383,9 +383,20 @@
     head = { x: spot.x, y: spot.y };
     target = { x: spot.x, y: spot.y };
 
+    /* Размер водолаза привязан к экрану, а не к координатам карты,
+       чтобы на широком мониторе он не был больше девушки на сапе (~100 px) */
+    var ctm = svg.getScreenCTM();
+    var scale = ctm ? Math.abs(ctm.a) || 1 : 1;
+    var divW = 96 / scale;
+    var divH = divW * 0.7;
     headEl = make("g", { "class": "game-head" });
     headEl.appendChild(make("use", {
-      href: "#game-diver", x: -55, y: -39, width: 110, height: 77
+      href: "#game-diver",
+      /* Центр головы в символе — примерно (77,25) из viewBox 100×70 */
+      x: (-0.77 * divW).toFixed(1),
+      y: (-0.357 * divH).toFixed(1),
+      width: divW.toFixed(1),
+      height: divH.toFixed(1)
     }));
     updateHead();
     headGroup.appendChild(headEl);
