@@ -23,6 +23,16 @@
     return { x: Number(pos.x) || 0, y: Number(pos.y) || 0 };
   });
 
+  /* В маршрут можно добавить промежуточные точки (via), чтобы обогнуть озеро.
+     Пины и расстояния по-прежнему считаются по основным точкам мест. */
+  var routePoints = [];
+  PLACES.forEach(function (place, index) {
+    (Array.isArray(place.via) ? place.via : []).forEach(function (via) {
+      routePoints.push({ x: Number(via.x) || 0, y: Number(via.y) || 0 });
+    });
+    routePoints.push(points[index]);
+  });
+
   function smoothPath(list) {
     if (list.length < 2) return "";
     var d = "M " + list[0].x + " " + list[0].y;
@@ -41,7 +51,7 @@
     return d;
   }
 
-  var mainPath = smoothPath(points);
+  var mainPath = smoothPath(routePoints);
   var path = mainPath;
 
   /* Дорожка к первой точке приходит из-за верхнего края карты */
@@ -195,7 +205,7 @@
     button.innerHTML =
       '<span class="pin__dot" aria-hidden="true"></span>' +
       '<span class="pin__label">' +
-        "<b>" + escapeHtml(place.emoji || "📍") + " " + escapeHtml(place.city) + "</b>" +
+        "<b>" + escapeHtml(place.city) + "</b>" +
       "</span>";
     pinsWrap.appendChild(button);
   });
@@ -232,7 +242,7 @@
     lastFocused = document.activeElement;
     currentGallery = [];
 
-    $("#panelCountry").textContent = (place.emoji ? place.emoji + " " : "") + (place.country || "");
+    $("#panelCountry").textContent = place.country || "";
     $("#panelTitle").textContent = place.city;
     $("#panelSubtitle").textContent = place.title || "";
     $("#panelCaption").textContent = place.caption || "";
@@ -395,6 +405,39 @@
 
   if (waveButton) waveButton.addEventListener("click", greetWithWave);
 
+  /* ---------- Девушка на сапе: проплывает слева направо ---------- */
+
+  var supButton = $("#supButton");
+  var supLayer = $("#supLayer");
+
+  function sendSup() {
+    if (reduceMotion || !supLayer) return;
+    if (supButton) supButton.disabled = true;
+    var dur = 6;
+    var sup = document.createElement("i");
+    sup.className = "sup";
+    /* Плывёт в случайной полосе экрана */
+    sup.style.top = (window.innerHeight * (0.2 + Math.random() * 0.55)).toFixed(0) + "px";
+    sup.style.setProperty("--size", (90 + Math.random() * 40).toFixed(0) + "px");
+    sup.style.setProperty("--dur", dur.toFixed(1) + "s");
+    sup.style.setProperty("--dy", (Math.random() * 30 - 15).toFixed(0) + "px");
+    sup.innerHTML = '<span><svg viewBox="0 0 80 60" aria-hidden="true"><use href="#icon-sup"></use></svg></span>';
+    sup.addEventListener("animationend", function (event) {
+      if (event.target === this && event.animationName === "sup-sail") {
+        this.remove();
+        if (supButton) supButton.disabled = false;
+      }
+    });
+    supLayer.appendChild(sup);
+    /* Надёжная уборка, если анимация не доиграла */
+    setTimeout(function () {
+      sup.remove();
+      if (supButton) supButton.disabled = false;
+    }, dur * 1000 + 400);
+  }
+
+  if (supButton) supButton.addEventListener("click", sendSup);
+
   /* ---------- Конфетти ---------- */
 
   var celebrateButton = $("#celebrate");
@@ -414,6 +457,19 @@
         piece.addEventListener("animationend", function () { this.remove(); });
         layer.appendChild(piece);
       }
+    });
+  }
+
+  /* ---------- Финал: «Куда дальше?» ---------- */
+
+  var finaleAsk = $("#finaleAsk");
+  var finaleAnswer = $("#finaleAnswer");
+  if (finaleAsk && finaleAnswer) {
+    finaleAsk.addEventListener("click", function () {
+      finaleAnswer.hidden = false;
+      finaleAsk.setAttribute("aria-expanded", "true");
+      var hint = $(".map__hint");
+      if (hint) hint.hidden = true;
     });
   }
 })();

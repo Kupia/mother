@@ -3,6 +3,8 @@
   --cream-2: #f7ece2;
   --rose: #e8b4b8;
   --rose-deep: #c9878e;
+  --sea-ink: #1f4d6d;
+  --pin-red: #cc5b62;
   --sand: #d9c3a5;
   --ink: #3d302b;
   --muted: #8a766c;
@@ -49,49 +51,45 @@ button { font: inherit; cursor: pointer; }
 .topbar > * { pointer-events: auto; }
 .topbar__eyebrow {
   margin: 0;
-  color: var(--rose-deep);
+  color: var(--sea-ink);
+  font-family: "Avenir Next", Avenir, var(--font-body);
   font-size: 0.72rem;
-  font-weight: 600;
-  letter-spacing: 0.3em;
+  font-weight: 500;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
 }
 .topbar h1 {
   margin: 0.1rem 0 0;
-  font-family: var(--font-head);
+  color: var(--sea-ink);
+  font-family: "Avenir Next", Avenir, var(--font-body);
   font-size: clamp(1.5rem, 3.4vw, 2.3rem);
-  font-weight: 400;
-  line-height: 1.1;
-}
-.topbar__celebrate {
-  border: 1px solid rgba(201, 135, 142, 0.35);
-  border-radius: 999px;
-  padding: 0.6rem 1.1rem;
-  background: rgba(255, 253, 251, 0.9);
-  color: var(--rose-deep);
-  font-size: 0.85rem;
-  box-shadow: 0 8px 22px rgba(88, 58, 46, 0.1);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-.topbar__celebrate:hover, .topbar__celebrate:focus-visible {
-  transform: translateY(-2px);
-  box-shadow: 0 14px 28px rgba(201, 135, 142, 0.25);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  line-height: 1.15;
 }
 .topbar__actions { display: flex; align-items: center; gap: 0.55rem; }
-.topbar__wave {
-  border: 1px solid rgba(112, 163, 178, 0.35);
-  border-radius: 999px;
-  padding: 0.6rem 1.1rem;
-  background: rgba(255, 253, 251, 0.9);
-  color: #5d8a93;
-  font-size: 0.85rem;
-  box-shadow: 0 8px 22px rgba(88, 58, 46, 0.1);
+/* Крабик (волна), искра (конфетти) и девушка на сапе — одинаковые круглые иконки в углу */
+.topbar__wave, .topbar__celebrate, .topbar__sup {
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  padding: 6px;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(255, 253, 251, 0.92);
+  box-shadow: 0 6px 16px rgba(27, 72, 105, 0.16);
+  cursor: pointer;
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
-.topbar__wave:hover, .topbar__wave:focus-visible {
-  transform: translateY(-2px);
-  box-shadow: 0 14px 28px rgba(93, 138, 147, 0.25);
+.topbar__wave svg, .topbar__celebrate svg, .topbar__sup svg { display: block; width: 100%; height: auto; }
+.topbar__wave:hover, .topbar__wave:focus-visible,
+.topbar__celebrate:hover, .topbar__celebrate:focus-visible,
+.topbar__sup:hover, .topbar__sup:focus-visible {
+  transform: translateY(-2px) rotate(-6deg);
+  box-shadow: 0 12px 22px rgba(27, 72, 105, 0.24);
 }
-.topbar__wave:disabled { opacity: 0.65; cursor: default; transform: none; }
+.topbar__wave:disabled, .topbar__sup:disabled { opacity: 0.55; cursor: default; transform: none; }
 
 /* ---------- Волна и крабики ---------- */
 
@@ -111,15 +109,12 @@ button { font: inherit; cursor: pointer; }
   bottom: -42vh;
   height: 42vh;
   opacity: 0;
-  background: linear-gradient(to bottom, rgba(164, 208, 215, 0.5), rgba(120, 169, 180, 0.78));
+  background: linear-gradient(to bottom, rgba(122, 190, 224, 0.78), rgba(43, 100, 143, 0.92));
 }
 .wave-layer__wave--back {
   bottom: -46vh;
   height: 46vh;
-  background: linear-gradient(to bottom, rgba(224, 205, 182, 0.45), rgba(150, 195, 203, 0.5));
-}
-.wave-layer__wave--back::before {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='24' viewBox='0 0 160 24'%3E%3Cpath d='M0 12 C20 0 40 24 80 12 S140 0 160 12 V24 H0 Z' fill='%23d9c3a5'/%3E%3C/svg%3E");
+  background: linear-gradient(to bottom, rgba(168, 217, 239, 0.6), rgba(54, 119, 165, 0.72));
 }
 .wave-layer__wave::before {
   content: "";
@@ -128,9 +123,13 @@ button { font: inherit; cursor: pointer; }
   right: 0;
   top: -20px;
   height: 24px;
-  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='24' viewBox='0 0 160 24'%3E%3Cpath d='M0 12 C20 0 40 24 80 12 S140 0 160 12 V24 H0 Z' fill='%23a4d0d7'/%3E%3C/svg%3E") repeat-x bottom center / 160px 24px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='24' viewBox='0 0 160 24'%3E%3Cpath d='M0 12 C20 0 40 24 80 12 S140 0 160 12 V24 H0 Z' fill='%23a8d9ef'/%3E%3C/svg%3E") repeat-x bottom center / 160px 24px;
   opacity: 0.8;
   animation: wave-flow 1.4s linear infinite;
+}
+/* Гребень задней волны — светлее, как пена на глубине */
+.wave-layer__wave--back::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='24' viewBox='0 0 160 24'%3E%3Cpath d='M0 12 C20 0 40 24 80 12 S140 0 160 12 V24 H0 Z' fill='%23bfe3f5'/%3E%3C/svg%3E");
 }
 .wave-layer.is-active .wave-layer__wave { animation: wave-surge 2s ease-in-out forwards; }
 .wave-layer.is-active .wave-layer__wave--front { animation-delay: 0.12s; }
@@ -178,6 +177,40 @@ button { font: inherit; cursor: pointer; }
 }
 @keyframes crab-bob { to { transform: translateX(2px) rotate(7deg); } }
 
+/* ---------- Девушка на сапе: проплывает слева направо ---------- */
+
+.sup-layer {
+  position: fixed;
+  inset: 0;
+  z-index: 47;
+  overflow: hidden;
+  pointer-events: none;
+}
+.sup {
+  position: absolute;
+  display: block;
+  width: var(--size, 110px);
+  line-height: 0;
+  animation: sup-sail var(--dur, 6s) linear var(--delay, 0s) both;
+}
+.sup svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 4px 5px rgba(27, 72, 105, 0.2));
+}
+.sup span {
+  display: block;
+  animation: sup-bob 0.9s ease-in-out infinite alternate;
+}
+@keyframes sup-sail {
+  0% { transform: translate3d(-10vw, 0, 0); opacity: 0; }
+  8% { opacity: 1; }
+  92% { opacity: 1; }
+  100% { transform: translate3d(110vw, var(--dy, 0px), 0); opacity: 0; }
+}
+@keyframes sup-bob { to { transform: translateY(-5px) rotate(2deg); } }
+
 /* ---------- Карта ---------- */
 
 .map {
@@ -214,6 +247,8 @@ button { font: inherit; cursor: pointer; }
   color: #a97b52;
   opacity: 0.55;
 }
+/* Мост выходит в море: там полупрозрачность даёт грязный оттенок, поэтому он плотный */
+.map__icons use[href="#icon-bridge"] { opacity: 1; }
 /* Озёра залиты цветом моря и виднее, чем тёмные силуэты */
 .map__lakes {
   opacity: 0.85;
@@ -265,33 +300,42 @@ button { font: inherit; cursor: pointer; }
   color: var(--ink);
   transform: translate(-50%, -50%);
 }
+/* Красная точка-метка слева от названия, как на бумажной карте */
 .pin__dot {
-  width: 17px;
-  height: 17px;
-  border: 4px solid var(--white);
+  position: absolute;
+  top: 50%;
+  right: calc(100% + 0.4rem);
+  width: 11px;
+  height: 11px;
+  border: 2.5px solid var(--white);
   border-radius: 50%;
-  background: var(--rose-deep);
-  box-shadow: 0 4px 14px rgba(201, 135, 142, 0.6);
+  background: var(--pin-red);
+  box-shadow: 0 2px 6px rgba(27, 72, 105, 0.4);
+  transform: translateY(-50%);
   transition: transform 0.25s ease;
 }
-.pin__label {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 0.3rem 0.65rem;
-  border: 1px solid rgba(160, 120, 100, 0.16);
-  border-radius: 13px;
-  background: rgba(255, 253, 251, 0.94);
-  box-shadow: 0 8px 22px rgba(88, 58, 46, 0.12);
-  line-height: 1.25;
-  white-space: nowrap;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+.pin:hover .pin__dot, .pin:focus-visible .pin__dot {
+  transform: translateY(-50%) scale(1.2);
 }
-.pin__label b { font-size: 0.86rem; font-weight: 600; }
-.pin:hover .pin__dot, .pin:focus-visible .pin__dot { transform: scale(1.3); }
+/* Название прямо на острове — без плашки */
+.pin__label {
+  display: block;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: none;
+  box-shadow: none;
+  color: var(--sea-ink);
+  font-family: "Avenir Next", Avenir, var(--font-body);
+  letter-spacing: 0.04em;
+  line-height: 1.2;
+  white-space: nowrap;
+  text-shadow: none;
+  transition: transform 0.25s ease;
+}
+.pin__label b { font-size: 1.125rem; font-weight: 500; }
 .pin:hover .pin__label, .pin:focus-visible .pin__label {
-  transform: translateY(-3px);
-  box-shadow: 0 14px 30px rgba(88, 58, 46, 0.2);
+  transform: translateY(-2px);
 }
 
 .map__hint {
@@ -310,6 +354,75 @@ button { font: inherit; cursor: pointer; }
   box-shadow: 0 8px 22px rgba(88, 58, 46, 0.1);
   white-space: nowrap;
 }
+
+/* ---------- Финал: «Куда дальше?» ---------- */
+
+.finale {
+  position: relative;
+  z-index: 26;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.4rem;
+  padding: 4rem 1.25rem 8rem;
+  text-align: center;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(168, 217, 239, 0.45), transparent 60%),
+    linear-gradient(180deg, var(--cream), var(--cream-2));
+}
+.finale__ask {
+  position: relative;
+  border: 0;
+  background: none;
+  padding: 0.4rem 0.6rem;
+  color: var(--sea-ink);
+  font-family: "Avenir Next", Avenir, var(--font-body);
+  font-size: clamp(1.4rem, 3.4vw, 2rem);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+.finale__ask::after {
+  content: "";
+  display: block;
+  width: 54px;
+  height: 1px;
+  margin: 0.7rem auto 0;
+  background: rgba(31, 77, 109, 0.35);
+  transition: width 0.25s ease;
+}
+.finale__ask:hover::after, .finale__ask:focus-visible::after { width: 86px; }
+.finale__ask:hover, .finale__ask:focus-visible { transform: translateY(-2px); }
+.finale__ask[aria-expanded="true"] { opacity: 0.65; pointer-events: none; }
+.finale__answer {
+  max-width: 34rem;
+  padding: 1.6rem;
+  border-radius: var(--radius);
+  background: rgba(255, 253, 251, 0.92);
+  box-shadow: var(--shadow);
+  animation: finale-in 0.5s ease both;
+}
+.finale__answer-label {
+  margin: 0 0 0.7rem;
+  color: var(--rose-deep);
+  font-family: "Avenir Next", Avenir, var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+.finale__answer-text {
+  margin: 0;
+  color: var(--sea-ink);
+  font-family: "Avenir Next", Avenir, var(--font-body);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+@keyframes finale-in {
+  from { transform: translateY(12px); opacity: 0; }
+  to { transform: none; opacity: 1; }
+}
+
 .map__compass {
   position: fixed;
   left: clamp(1rem, 4vw, 2.5rem);
@@ -613,10 +726,9 @@ button { font: inherit; cursor: pointer; }
   .topbar { padding: 0.9rem 1rem; gap: 0.55rem; flex-direction: column; align-items: flex-start; }
   .topbar h1 { font-size: 1.3rem; }
   .topbar__actions { gap: 0.4rem; width: 100%; justify-content: space-between; }
-  .topbar__wave, .topbar__celebrate { padding: 0.5rem 0.7rem; font-size: 0.74rem; }
-  .pin__label { padding: 0.22rem 0.45rem; border-radius: 10px; }
-  .pin__label b { font-size: 0.7rem; }
-  .pin__dot { width: 13px; height: 13px; border-width: 3px; }
+  .topbar__wave, .topbar__celebrate, .topbar__sup { width: 38px; height: 38px; padding: 5px; }
+  .pin__label b { font-size: 0.95rem; }
+  .pin__dot { width: 9px; height: 9px; border-width: 2px; right: calc(100% + 0.3rem); }
   .map__hint { bottom: 1rem; font-size: 0.72rem; white-space: normal; width: max-content; max-width: 90vw; }
   .map__compass {
     top: 9rem;
