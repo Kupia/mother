@@ -58,10 +58,11 @@
 
 ## Как опубликовать
 
-Репозиторий: `https://github.com/Kupia/mother.git`. **Пока ничего не запушено** — публикация только после отдельного подтверждения.
+Репозиторий: `https://github.com/Kupia/mother.git`. Сайт опубликован: **https://kupia.github.io/mother/**.
 
-1. `Settings → Pages → Build and deployment → Source: GitHub Actions`.
-2. После зелёного **Actions** сайт будет по адресу `https://kupia.github.io/mother/`.
+- Исходники лежат в ветке `main`, деплой идёт через `.github/workflows/deploy.yml`.
+- GitHub Pages включён с источником **GitHub Actions** (`Settings → Pages → Build and deployment`).
+- Каждый `push` в `main` автоматически перевыкладывает сайт. Локальные правки перед публикацией можно проверить через `index.html` — сервер не нужен.
 
 ## Важное про фотографии с Яндекс.Диска
 
