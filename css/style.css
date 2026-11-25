@@ -682,7 +682,7 @@ button { font: inherit; cursor: pointer; }
   letter-spacing: 0.04em;
   opacity: 0.85;
 }
-.photo__caption {
+.photo__emoji {
   position: absolute;
   left: 0;
   right: 0;
@@ -692,14 +692,14 @@ button { font: inherit; cursor: pointer; }
   background: linear-gradient(transparent, rgba(45, 30, 25, 0.72));
   color: #fff;
   font-family: "Avenir Next", Avenir, var(--font-body);
-  font-size: 0.8rem;
-  letter-spacing: 0.04em;
-  text-align: left;
+  font-size: 1.15rem;
+  line-height: 1;
+  text-align: center;
   opacity: 0;
   transform: translateY(6px);
   transition: opacity 0.3s ease, transform 0.3s ease;
 }
-.photo:hover .photo__caption, .photo:focus-visible .photo__caption {
+.photo:hover .photo__emoji, .photo:focus-visible .photo__emoji {
   opacity: 1;
   transform: none;
 }

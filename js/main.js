@@ -224,16 +224,16 @@
     var galleryId = "g" + index;
     currentGallery.push({ photo: photo, place: place, index: index, hue: (index * 37 + 18) % 360 });
 
-    var caption = '<span class="photo__caption">' + escapeHtml(label) + "</span>";
+    var emoji = '<span class="photo__emoji" aria-hidden="true">📷</span>';
     if (photo.thumb || photo.full) {
       return '<button class="photo" type="button" data-gallery-id="' + galleryId + '" aria-label="' + escapeHtml(label) + '">' +
         '<img src="' + escapeHtml(photo.thumb || photo.full) + '" alt="' + escapeHtml(label) + '" decoding="async">' +
-        caption + "</button>";
+        emoji + "</button>";
     }
     return '<button class="photo photo--placeholder" type="button" data-gallery-id="' + galleryId +
       '" style="--hue:' + ((index * 37 + 18) % 360) + '" aria-label="' + escapeHtml(label) + '">' +
       '<span class="photo__placeholder-name">' + escapeHtml(place.city) + "</span>" +
-      '<span class="photo__placeholder-count">фото ' + (index + 1) + "</span>" + caption + "</button>";
+      '<span class="photo__placeholder-count">фото ' + (index + 1) + "</span>" + emoji + "</button>";
   }
 
   function openPanel(placeId) {
