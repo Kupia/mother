@@ -224,16 +224,13 @@
     var galleryId = "g" + index;
     currentGallery.push({ photo: photo, place: place, index: index, hue: (index * 37 + 18) % 360 });
 
-    var emoji = '<span class="photo__emoji" aria-hidden="true">📷</span>';
     if (photo.thumb || photo.full) {
       return '<button class="photo" type="button" data-gallery-id="' + galleryId + '" aria-label="' + escapeHtml(label) + '">' +
         '<img src="' + escapeHtml(photo.thumb || photo.full) + '" alt="' + escapeHtml(label) + '" decoding="async">' +
-        emoji + "</button>";
+        "</button>";
     }
     return '<button class="photo photo--placeholder" type="button" data-gallery-id="' + galleryId +
-      '" style="--hue:' + ((index * 37 + 18) % 360) + '" aria-label="' + escapeHtml(label) + '">' +
-      '<span class="photo__placeholder-name">' + escapeHtml(place.city) + "</span>" +
-      '<span class="photo__placeholder-count">фото ' + (index + 1) + "</span>" + emoji + "</button>";
+      '" style="--hue:' + ((index * 37 + 18) % 360) + '" aria-label="' + escapeHtml(label) + '"></button>';
   }
 
   function openPanel(placeId) {
@@ -303,7 +300,6 @@
 
   var lightbox = $("#lightbox");
   var stage = $("#lightboxStage");
-  var lightboxCaption = $("#lightboxCaption");
   var currentIndex = 0;
 
   function renderLightbox() {
@@ -319,7 +315,6 @@
         "<strong>" + escapeHtml(item.place.city) + "</strong>" +
         "<span>Здесь будет твоя фотография</span></div>";
     }
-    lightboxCaption.textContent = item.place.city + " — " + label;
   }
 
   function openLightbox(galleryId) {

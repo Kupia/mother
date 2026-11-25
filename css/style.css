@@ -659,50 +659,7 @@ button { font: inherit; cursor: pointer; }
   inset: 0;
   background: radial-gradient(circle at 80% 15%, rgba(255, 255, 255, 0.6), transparent 40%);
 }
-.photo__placeholder-name {
-  position: relative;
-  z-index: 1;
-  padding: 0 1rem;
-  font-family: "Avenir Next", Avenir, var(--font-body);
-  font-size: 1.125rem;
-  font-weight: 500;
-  letter-spacing: 0.04em;
-  color: #fff;
-  text-align: center;
-  text-shadow: none;
-}
-.photo__placeholder-count {
-  position: absolute;
-  right: 0.8rem;
-  bottom: 0.7rem;
-  z-index: 1;
-  color: #fff;
-  font-family: "Avenir Next", Avenir, var(--font-body);
-  font-size: 0.72rem;
-  letter-spacing: 0.04em;
-  opacity: 0.85;
-}
-.photo__emoji {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 2;
-  padding: 1.8rem 0.8rem 0.7rem;
-  background: linear-gradient(transparent, rgba(45, 30, 25, 0.72));
-  color: #fff;
-  font-family: "Avenir Next", Avenir, var(--font-body);
-  font-size: 1.15rem;
-  line-height: 1;
-  text-align: center;
-  opacity: 0;
-  transform: translateY(6px);
-  transition: opacity 0.3s ease, transform 0.3s ease;
-}
-.photo:hover .photo__emoji, .photo:focus-visible .photo__emoji {
-  opacity: 1;
-  transform: none;
-}
+/* Плитки без подписей: только изображение. */
 
 /* ---------- Просмотр фотографии ---------- */
 
@@ -757,13 +714,6 @@ button { font: inherit; cursor: pointer; }
   letter-spacing: 0.04em;
 }
 .lightbox__placeholder span { opacity: 0.85; }
-.lightbox__caption {
-  color: rgba(255, 255, 255, 0.9);
-  font-family: "Avenir Next", Avenir, var(--font-body);
-  font-size: 0.95rem;
-  letter-spacing: 0.04em;
-  text-align: center;
-}
 .lightbox__nav, .lightbox__close {
   display: grid;
   place-items: center;
