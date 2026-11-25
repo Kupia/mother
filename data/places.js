@@ -28,7 +28,7 @@ window.PLACES = [
     pos: { x: 337, y: 320 },
     title: "Тихий берег",
     cover: "assets/photos/sakhalin/cover.jpg",
-    caption: "Остров, где море можно было наблюдать с первых дней, где тебе снились подводные сны в стиле Миядзаки и куда вы отправляли нас на лето, а на зиму мы туда рвёмся кататься на лыжах до сих пор",
+    caption: "Остров, где ты могла наблюдать море с самых первых дней, где тебе снились подводные сны в стиле Миядзаки и куда вы отправляли нас на лето. И до сих пор мы рвёмся туда кататься на лыжах. Море, лопух, огоньки, запах морской капусты, отголоски Японии.",
     photos: [
       { alt: "Берег и скалы",
         thumb: "assets/photos/sakhalin/0d8c7f95-05df-4414-ad1a-a8ad4b0e6ea7-thumb.jpeg",
@@ -47,7 +47,22 @@ window.PLACES = [
         full: "assets/photos/sakhalin/9b9ee15e-53b5-46b6-aefc-881b1e6ee4ca.jpeg" },
       { alt: "Ещё одно фото с острова",
         thumb: "assets/photos/sakhalin/43428357-74ec-4154-bad3-af6e536bdd7a-thumb.jpeg",
-        full: "assets/photos/sakhalin/43428357-74ec-4154-bad3-af6e536bdd7a.jpeg" }
+        full: "assets/photos/sakhalin/43428357-74ec-4154-bad3-af6e536bdd7a.jpeg" },
+      { alt: "Фото с Сахалина 1",
+        thumb: "assets/photos/sakhalin/r001-001-thumb.jpg",
+        full: "assets/photos/sakhalin/r001-001.jpg" },
+      { alt: "Фото с Сахалина 2",
+        thumb: "assets/photos/sakhalin/r001-003-thumb.jpg",
+        full: "assets/photos/sakhalin/r001-003.jpg" },
+      { alt: "Фото с Сахалина 3",
+        thumb: "assets/photos/sakhalin/r001-007-thumb.jpg",
+        full: "assets/photos/sakhalin/r001-007.jpg" },
+      { alt: "Фото с Сахалина 4",
+        thumb: "assets/photos/sakhalin/r001-015-thumb.jpg",
+        full: "assets/photos/sakhalin/r001-015.jpg" },
+      { alt: "Фото с Сахалина 5",
+        thumb: "assets/photos/sakhalin/r001-016-thumb.jpg",
+        full: "assets/photos/sakhalin/r001-016.jpg" }
     ]
   },
   {
@@ -57,7 +72,7 @@ window.PLACES = [
     pos: { x: 740, y: 920 },
     title: "Море рядом с домом",
     cover: "assets/photos/minsk-sea/cover.jpeg",
-    caption: "Это остановка не совсем про море, но про путь объединения двух морей: Тебя в виде тихого океана и Папы в виде шумного, любящего, но домашнего Минского моря. Минск стал для вас и для нас местом, в котором мы все провели не одно лето, наравне с Сахалином",
+    caption: "Это остановка не совсем про море, а больше про слияние нескольких «морей», семей, менталитетов и характеров. Минск стал для вас и для нас важным местом, в котором мы все провели не одно лето и даже планировали переезд. Запах метро, Пралески, драники, забытое в маршрутке сало, горы яблок.",
     photos: [
       { alt: "Фото из Минского моря 1",
         thumb: "assets/photos/minsk-sea/06223b41-7297-4770-9968-d36b9b38f4ec-thumb.jpeg",
@@ -83,7 +98,7 @@ window.PLACES = [
       { x: 175, y: 1385 }, { x: 250, y: 1445 }
     ],
     title: "Три озера",
-    caption: "Тихая вода, сосны и чувство, что время здесь течёт иначе.",
+    caption: "Большая вода, дубки и чувство, что время здесь течёт иначе. Место, встреч с которым мы ждали каждый год и где всегда чувствовали себя немного первооткрывателями. Друзья, ветер, срывающий палатки, дух приключений, гребешки, засохшая соль на плечах, игры в мафию у костра, пережидание тайфуна под тентом.",
     photos: [
       { alt: "Фото из Триозерья 1",
         thumb: "assets/photos/treozerye/29ed44e9-3a11-453e-9c72-b013057b9d21-thumb.jpeg",
@@ -99,7 +114,22 @@ window.PLACES = [
         full: "assets/photos/treozerye/913d285b-3b30-4e19-95a7-41fe3af3d196.jpeg" },
       { alt: "Фото из Триозерья 5",
         thumb: "assets/photos/treozerye/cded9c12-d337-4691-abfa-de5d953c1237-thumb.jpeg",
-        full: "assets/photos/treozerye/cded9c12-d337-4691-abfa-de5d953c1237.jpeg" }
+        full: "assets/photos/treozerye/cded9c12-d337-4691-abfa-de5d953c1237.jpeg" },
+      { alt: "Фото из Триозерья 6",
+        thumb: "assets/photos/treozerye/IMG_2660-thumb.jpeg",
+        full: "assets/photos/treozerye/IMG_2660.jpeg" },
+      { alt: "Фото из Триозерья 7",
+        thumb: "assets/photos/treozerye/IMG_2661-thumb.jpeg",
+        full: "assets/photos/treozerye/IMG_2661.jpeg" },
+      { alt: "Фото из Триозерья 8",
+        thumb: "assets/photos/treozerye/IMG_2662-thumb.jpeg",
+        full: "assets/photos/treozerye/IMG_2662.jpeg" },
+      { alt: "Фото из Триозерья 9",
+        thumb: "assets/photos/treozerye/IMG_2663-thumb.jpeg",
+        full: "assets/photos/treozerye/IMG_2663.jpeg" },
+      { alt: "Фото из Триозерья 10",
+        thumb: "assets/photos/treozerye/r001-025%20(1)-thumb.jpg",
+        full: "assets/photos/treozerye/r001-025%20(1).jpg" }
     ]
   },
   {
@@ -108,6 +138,7 @@ window.PLACES = [
     country: "Россия",
     pos: { x: 645, y: 2040 },
     title: "Где начинается океан",
+    cover: "assets/photos/vladivostok/core.JPG",
     caption: "Сопки, бухты и долгие прогулки у воды.",
     photos: [
       { alt: "Фото из Владивостока 1",
@@ -124,7 +155,28 @@ window.PLACES = [
         full: "assets/photos/vladivostok/2018-08-18%2009-20-33_1546337000144.JPG" },
       { alt: "Владивосток в 2021 году",
         thumb: "assets/photos/vladivostok/2021-03-07%2014-47-12-thumb.JPG",
-        full: "assets/photos/vladivostok/2021-03-07%2014-47-12.JPG" }
+        full: "assets/photos/vladivostok/2021-03-07%2014-47-12.JPG" },
+      { alt: "Фото из Владивостока 6",
+        thumb: "assets/photos/vladivostok/DSC03670-thumb.JPG",
+        full: "assets/photos/vladivostok/DSC03670.JPG" },
+      { alt: "Фото из Владивостока 7",
+        thumb: "assets/photos/vladivostok/DSC03904-thumb.JPG",
+        full: "assets/photos/vladivostok/DSC03904.JPG" },
+      { alt: "Фото из Владивостока 8",
+        thumb: "assets/photos/vladivostok/DSC07681-thumb.JPG",
+        full: "assets/photos/vladivostok/DSC07681.JPG" },
+      { alt: "Фото из Владивостока 9",
+        thumb: "assets/photos/vladivostok/DSC07711-thumb.JPG",
+        full: "assets/photos/vladivostok/DSC07711.JPG" },
+      { alt: "Фото из Владивостока 10",
+        thumb: "assets/photos/vladivostok/IMG_2664-thumb.jpeg",
+        full: "assets/photos/vladivostok/IMG_2664.jpeg" },
+      { alt: "Фото из Владивостока 11",
+        thumb: "assets/photos/vladivostok/IMG_2665-thumb.jpeg",
+        full: "assets/photos/vladivostok/IMG_2665.jpeg" },
+      { alt: "Фото из Владивостока 12",
+        thumb: "assets/photos/vladivostok/DSC05678-thumb.JPG",
+        full: "assets/photos/vladivostok/DSC05678.JPG" }
     ]
   },
   {
@@ -134,6 +186,8 @@ window.PLACES = [
     pos: { x: 300, y: 2710 },
     via: [{ x: 460, y: 2600 }],
     title: "Самое тёплое море",
+    cover: "assets/photos/cyprus/core.jpeg",
+    coverPosition: "center 70%",
     caption: "Солнце, лазурь и разговоры, которые хочется продлить.",
     photos: [
       { alt: "Фото с Кипра 1",
@@ -150,7 +204,16 @@ window.PLACES = [
         full: "assets/photos/cyprus/2e7b868e-c21f-44a0-a5a8-2ef89c6860f4.jpeg" },
       { alt: "Фото с Кипра 5",
         thumb: "assets/photos/cyprus/581be3b2-f662-43da-ab6d-d5b0a0613a12-thumb.jpeg",
-        full: "assets/photos/cyprus/581be3b2-f662-43da-ab6d-d5b0a0613a12.jpeg" }
+        full: "assets/photos/cyprus/581be3b2-f662-43da-ab6d-d5b0a0613a12.jpeg" },
+      { alt: "Фото с Кипра 6",
+        thumb: "assets/photos/cyprus/70808245-d415-4948-8a1c-6b0ed3f99df6-thumb.jpeg",
+        full: "assets/photos/cyprus/70808245-d415-4948-8a1c-6b0ed3f99df6.jpeg" },
+      { alt: "Фото с Кипра 7",
+        thumb: "assets/photos/cyprus/dc839d4d-b7df-4766-a392-bf5c0a987ca2-thumb.jpeg",
+        full: "assets/photos/cyprus/dc839d4d-b7df-4766-a392-bf5c0a987ca2.jpeg" },
+      { alt: "Фото с Кипра 8",
+        thumb: "assets/photos/cyprus/f3f45a8a-b865-4d54-bf73-b77cd5c17d4b-thumb.jpeg",
+        full: "assets/photos/cyprus/f3f45a8a-b865-4d54-bf73-b77cd5c17d4b.jpeg" }
     ]
   },
   {
@@ -159,12 +222,24 @@ window.PLACES = [
     country: "Таиланд",
     pos: { x: 670, y: 3310 },
     title: "Тёплое море и пальмы",
+    cover: "assets/photos/thailand/core.JPG",
     caption: "Последняя остановка: тёплый ветер, лазурь и ощущение, что впереди ещё много всего.",
     photos: [
-      { alt: "Пальмы и пляж" },
-      { alt: "Тёплое море" },
-      { alt: "Ужин на берегу" },
-      { alt: "Закат на Пхукете" }
+      { alt: "Фото с Пхукета 1",
+        thumb: "assets/photos/thailand/DSCF1585-thumb.JPG",
+        full: "assets/photos/thailand/DSCF1585.JPG" },
+      { alt: "Фото с Пхукета 2",
+        thumb: "assets/photos/thailand/DSCF1673-thumb.JPG",
+        full: "assets/photos/thailand/DSCF1673.JPG" },
+      { alt: "Фото с Пхукета 3",
+        thumb: "assets/photos/thailand/DSCF2061-thumb.JPG",
+        full: "assets/photos/thailand/DSCF2061.JPG" },
+      { alt: "Фото с Пхукета 4",
+        thumb: "assets/photos/thailand/DSCF2147-thumb.JPG",
+        full: "assets/photos/thailand/DSCF2147.JPG" },
+      { alt: "Фото с Пхукета 5",
+        thumb: "assets/photos/thailand/DSCF6607-thumb.JPG",
+        full: "assets/photos/thailand/DSCF6607.JPG" }
     ]
   }
 ];

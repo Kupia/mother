@@ -258,6 +258,7 @@
       var cover = document.createElement("img");
       cover.className = "panel__cover";
       cover.src = place.cover;
+      if (place.coverPosition) cover.style.objectPosition = place.coverPosition;
       cover.alt = "";
       cover.setAttribute("aria-hidden", "true");
       header.insertBefore(cover, header.firstChild);
@@ -425,6 +426,26 @@
 
   var supButton = $("#supButton");
   var supLayer = $("#supLayer");
+  var supIcon = $("#icon-sup");
+
+  /* Копируем символ в другой SVG: так руку с веслом можно анимировать отдельно
+     (внутри <use> её нельзя достать обычным CSS-селектором). */
+  function supSvg() {
+    var ns = "http://www.w3.org/2000/svg";
+    var svg = document.createElementNS(ns, "svg");
+    svg.setAttribute("viewBox", "0 0 80 60");
+    svg.setAttribute("aria-hidden", "true");
+    if (!supIcon) return svg;
+    var paddle = document.createElementNS(ns, "g");
+    paddle.setAttribute("class", "sup__paddle");
+    Array.prototype.forEach.call(supIcon.childNodes, function (node) {
+      var copy = node.cloneNode(true);
+      if (copy.nodeType === 1 && copy.hasAttribute("data-sup-paddle")) paddle.appendChild(copy);
+      else svg.appendChild(copy);
+    });
+    svg.appendChild(paddle);
+    return svg;
+  }
 
   function sendSup() {
     if (reduceMotion || !supLayer) return;
@@ -437,9 +458,20 @@
     sup.style.setProperty("--size", (90 + Math.random() * 40).toFixed(0) + "px");
     sup.style.setProperty("--dur", dur.toFixed(1) + "s");
     sup.style.setProperty("--dy", (Math.random() * 30 - 15).toFixed(0) + "px");
-    sup.innerHTML = '<span><svg viewBox="0 0 80 60" aria-hidden="true"><use href="#icon-sup"></use></svg></span>';
+    var supBody = document.createElement("span");
+    supBody.appendChild(supSvg());
+    sup.appendChild(supBody);
+    sup.addEventListener("click", function (event) {
+      event.preventDefault();
+      event.stopPropagation();
+      this.classList.remove("sup--paddle");
+      void this.offsetWidth; /* перезапуск анимации при новом клике */
+      this.classList.add("sup--paddle");
+    });
     sup.addEventListener("animationend", function (event) {
-      if (event.target === this && event.animationName === "sup-sail") {
+      if (event.animationName === "sup-paddle") {
+        this.classList.remove("sup--paddle");
+      } else if (event.target === this && event.animationName === "sup-sail") {
         this.remove();
         if (supButton) supButton.disabled = false;
       }

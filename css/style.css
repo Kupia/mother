@@ -194,6 +194,8 @@ button { font: inherit; cursor: pointer; }
   display: block;
   width: var(--size, 110px);
   line-height: 0;
+  pointer-events: auto;
+  cursor: pointer;
   animation: sup-sail var(--dur, 6s) linear var(--delay, 0s) both;
 }
 .sup svg {
@@ -206,6 +208,14 @@ button { font: inherit; cursor: pointer; }
   display: block;
   animation: sup-bob 0.9s ease-in-out infinite alternate;
 }
+/* Клик по плывущей сапистке — рука с веслом делает два гребка */
+.sup__paddle {
+  transform-box: view-box;
+  transform-origin: 44px 27px;
+}
+.sup--paddle .sup__paddle {
+  animation: sup-paddle 0.9s ease-in-out 2;
+}
 @keyframes sup-sail {
   0% { transform: translate3d(-10vw, 0, 0); opacity: 0; }
   8% { opacity: 1; }
@@ -213,6 +223,11 @@ button { font: inherit; cursor: pointer; }
   100% { transform: translate3d(110vw, var(--dy, 0px), 0); opacity: 0; }
 }
 @keyframes sup-bob { to { transform: translateY(-5px) rotate(2deg); } }
+@keyframes sup-paddle {
+  0%, 100% { transform: rotate(0deg); }
+  28% { transform: rotate(-26deg); }
+  72% { transform: rotate(26deg); }
+}
 
 /* ---------- Карта ---------- */
 
