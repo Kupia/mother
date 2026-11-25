@@ -188,7 +188,7 @@ window.PLACES = [
     title: "Самое тёплое море",
     cover: "assets/photos/cyprus/core.jpeg",
     coverPosition: "center 70%",
-    caption: "Солнце, лазурь и разговоры, которые хочется продлить.",
+    caption: "Нас там не было, и мало что можем сказать. Но историю, как вы-потеряшки встретили Сячина на багги, а потом все дружно ели дорадо, мы можем слушать бесконечно!",
     photos: [
       { alt: "Фото с Кипра 1",
         thumb: "assets/photos/cyprus/065f53b0-d241-4287-a9ed-94c5b85edf7d-thumb.jpeg",
